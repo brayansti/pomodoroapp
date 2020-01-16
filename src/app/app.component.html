@@ -383,7 +383,8 @@
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
 
-  <input type="hidden" #selection>
+  <input value #selection>
+  <input [(ngModel)]="selection.value">
 
   <div class="card-container">
     <div class="card card-small" (click)="selection.value = 'component'" tabindex="0">
