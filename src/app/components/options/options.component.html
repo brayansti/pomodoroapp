@@ -1,5 +1,50 @@
 
 <div>
-    <p>options works!</p>
-    <mat-slider></mat-slider>
+
+    <div class="slider-time">
+        <p> {{options.optionvalueHour}} : 00 </p>
+        <mat-slider
+            min="1"
+            max="60"
+            step="1"
+            [(ngModel)]="options.optionvalueHour"
+            [thumbLabel]="true">
+        </mat-slider>
+    </div>
+    <div class="slider-time">
+        <p> {{options.optionshortBreak}} : 00 </p>
+        <mat-slider
+            min="1"
+            max="60"
+            step="1"
+            [(ngModel)]="options.optionshortBreak"
+            [thumbLabel]="true">
+        </mat-slider>
+    </div>
+    <div class="slider-time">
+        <p> {{options.optionlongBreak}} : 00 </p>
+        <mat-slider
+            min="1"
+            max="60"
+            step="1"
+            [(ngModel)]="options.optionlongBreak"
+            [thumbLabel]="true">
+        </mat-slider>
+    </div>
+    <div class="slider-time">
+        <p> {{options.optionrounds}} : 00 </p>
+        <mat-slider
+            min="1"
+            max="12"
+            step="1"
+            [(ngModel)]="options.optionrounds"
+            [thumbLabel]="true">
+        </mat-slider>
+    </div>
+
+    <button
+        (click)="sendDataTime( options )">
+        Enviarloo!!
+    </button>
+
 </div>

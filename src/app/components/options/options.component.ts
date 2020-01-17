@@ -8,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsComponent implements OnInit {
 
+  options:object = {
+    optionvalueHour : 0,
+    optionshortBreak : 0,
+    optionlongBreak : 0,
+    optionrounds : 0,
+  }
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  sendDataTime = ( data:Object ) =>{
+    console.log( 'Mira como está:' );
+    console.log( data );
   }
 
 }

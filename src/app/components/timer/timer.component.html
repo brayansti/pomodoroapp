@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="display-1">
+    {{timing[0] < 10 ? 0 : ''}}{{timing[0]}} : {{timing[1] < 10 ? 0 : ''}}{{timing[1]}}
+  </h1>
+  <div class="controls">
+    <button type="button" class="btn btn-success" (click)="startTimer()">Start</button>
+    <button type="button" class="btn btn-danger" (click)="stopTimer()">Stop</button>
+    <button type="button" class="btn btn-secondary" (click)="resetTimer()">Reset</button>
+  </div>
+</div>
