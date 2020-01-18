@@ -8,22 +8,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class OptionsComponent implements OnInit {
 
-  @Output() ouputOptions = new EventEmitter<Object>();
+  @Output() ouputOptions = new EventEmitter();
 
   options:object = {
-    optionvalueHour : 0,
-    optionshortBreak : 0,
-    optionlongBreak : 0,
-    optionrounds : 0,
+    optionvalueHour : 20,
+    optionshortBreak : 5,
+    optionlongBreak : 15,
+    optionrounds : 4,
   }
 
 
   constructor() { }
 
   ngOnInit() {
+    // this.sendDataTime(this.options);
   }
 
-  sendDataTime = ( data:Object ) =>{
-    this.ouputOptions.emit(data);
+  @Output() myEvent = new EventEmitter();
+  sendDataTime(data:Object){
+    this.ouputOptions.emit(data)
   }
 }

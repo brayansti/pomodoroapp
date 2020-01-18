@@ -1,0 +1,11 @@
+@import '../styles.scss';
+
+.mainApp{
+    color: $white;
+    margin: 0 auto;
+    background-color: $pomodoro-1;
+}
+
+.mainApp[_ngcontent-jan-c0]{
+    background-color: red;
+}

@@ -1,11 +1,18 @@
 
 <div>
 
+    <div>
+        <button
+            (click)="sendDataTime(options)">
+            Desde afuera
+        </button>
+    </div>
+
     <div class="slider-time">
         <p>Work</p>
         <p> {{options.optionvalueHour}} : 00 </p>
         <mat-slider
-            min="1"
+            min="0"
             max="60"
             step="1"
             [(ngModel)]="options.optionvalueHour"
@@ -16,7 +23,7 @@
         <p>Short Break</p>
         <p> {{options.optionshortBreak}} : 00 </p>
         <mat-slider
-            min="1"
+            min="0"
             max="60"
             step="1"
             [(ngModel)]="options.optionshortBreak"
@@ -27,7 +34,7 @@
         <p>Long Break</p>
         <p> {{options.optionlongBreak}} : 00 </p>
         <mat-slider
-            min="1"
+            min="0"
             max="60"
             step="1"
             [(ngModel)]="options.optionlongBreak"
@@ -38,7 +45,7 @@
         <p>Rounds</p>
         <p> {{options.optionrounds}} : 00 </p>
         <mat-slider
-            min="1"
+            min="0"
             max="12"
             step="1"
             [(ngModel)]="options.optionrounds"
@@ -46,9 +53,9 @@
         </mat-slider>
     </div>
 
-    <button
+    <!-- <button
         (click)="sendDataTime( options )">
         Enviarloo!!
-    </button>
+    </button> -->
 
 </div>

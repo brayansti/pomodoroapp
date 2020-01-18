@@ -2,15 +2,18 @@
   <h2 class="display-1">
     {{timing[0] < 10 ? 0 : ''}}{{timing[0]}} : {{timing[1] < 10 ? 0 : ''}}{{timing[1]}}
   </h2>
+  <p *ngIf="newOptions">
+    Ronda {{currentRound}} / {{newOptions.optionrounds}}
+  </p>
   <div class="controls">
     <button type="button" class="btn btn-success" (click)="changeTime()">ChangeTime</button>
     <button type="button" class="btn btn-success" (click)="startTimer()">Start</button>
     <button type="button" class="btn btn-danger" (click)="stopTimer()">Stop</button>
     <button type="button" class="btn btn-secondary" (click)="resetTimer()">Reset</button>
-
+    <button type="button" class="btn btn-secondary" (click)="setClock()">setClock</button>
   </div>
-      <p>optionvalueHour = {{newOptions.optionvalueHour}}</p>
+      <!-- <p>optionvalueHour = {{newOptions.optionvalueHour}}</p>
       <p>optionshortBreak = {{newOptions.optionshortBreak}}</p>
       <p>optionlongBreak = {{newOptions.optionlongBreak}}</p>
-      <p>optionrounds = {{newOptions.optionrounds}}</p>
+      <p>optionrounds = {{newOptions.optionrounds}}</p> -->
 </div>

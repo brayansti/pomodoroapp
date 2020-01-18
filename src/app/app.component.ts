@@ -14,4 +14,5 @@ export class AppComponent {
   updateOptions(e):void {
     this.options = e
   }
+
 }

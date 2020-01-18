@@ -1,23 +1,35 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-{{title}}
 
-<input [(ngModel)]="percentClock" type="number">
-{{percentClock}}
+<main class="mainApp">
+  <h1 class="title">
+    {{title}}
+  </h1>
 
-<circle-progress
-  [percent]="percentClock"
-  [radius]="100"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'#78C000'"
-  [innerStrokeColor]="'#C7E596'"
-  [animation]="false"
->
-</circle-progress>
+  <section class="clockContainer">
+    <div class="clockContainer__circle">
+      <input [(ngModel)]="percentClock" type="number">
+      <circle-progress
+        [percent]="percentClock"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#78C000'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="false"
+      >
+      </circle-progress>
+    </div>
+    <div class="clockContainer__timer">
+      <app-timer #apptime ></app-timer>
+    </div>
+  </section>
 
+  
 
-<app-timer [newOptions]='options'></app-timer>
+  <section class="optionsContainer">
+    <app-options (ouputOptions)="apptime.updateOptions($event)"></app-options>
+  </section>
+</main>
 
-<app-options (ouputOptions) = updateOptions($event)></app-options>
 
 <router-outlet></router-outlet>
