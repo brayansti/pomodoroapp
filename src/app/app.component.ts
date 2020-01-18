@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Pomodoro APP';
   testModel = '';
+
+  options: object = {};
+
+  updateOptions(e):void {
+    this.options = e
+  }
 }

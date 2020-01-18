@@ -10,11 +10,12 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   @Input() m: number;
   @Input() s: number;
+  @Input() newOptions: Object;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onComplete: EventEmitter<any> = new EventEmitter();
 
   running = false;
-  timing = [1, 0];
+  timing = [1, 30];
   subscription: Subscription;
 
   constructor() { }
@@ -66,6 +67,14 @@ export class TimerComponent implements OnInit, OnDestroy {
     // Set the minutes and seconds back to their original values.
     this.stopTimer();
     this.timing = [this.m, this.s];
+  }
+
+  changeTime(): void{
+    // Set the minutes and seconds back to their new values.
+    this.stopTimer();
+    this.timing = [2, 30];
+
+    console.log(this.newOptions);
   }
 
   private updateTimer(): void {

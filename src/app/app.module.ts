@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { AppComponent } from './app.component';
 import { OptionsComponent } from './components/options/options.component';
@@ -21,7 +22,8 @@ import { TimerComponent } from './components/timer/timer.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    NgCircleProgressModule.forRoot({ /*  Default options here */ })
   ],
   providers: [],
   bootstrap: [AppComponent]
