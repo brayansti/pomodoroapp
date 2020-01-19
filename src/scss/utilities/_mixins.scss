@@ -1,0 +1,148 @@
+/* MIXINS */
+
+// Flexbox
+@mixin flex($horizontal: center, $vertical: center, $wrap:wrap, $display: flex){
+	display: $display;
+	justify-content: $horizontal;
+	align-items: $vertical;
+	align-content: $vertical;
+	flex-wrap: $wrap;
+}
+
+// PX to REM
+@mixin fontSize($size){
+    font-size: ($size / $baseFont) + rem;
+}
+
+// Transitions
+@mixin transition($property: all, $time: .3, $timing: ease){
+	transition: $property $time + s $timing;
+}
+
+// Call animation
+@mixin animation($name, $time) {
+	animation: $name linear $time;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+}
+
+// Placeholder styles
+@mixin optional-at-root($sel) {
+	@at-root #{if(not &, $sel, selector-append(&, $sel))} {
+		@content;
+	}
+}
+
+@mixin placeholder {
+	@include optional-at-root('::-webkit-input-placeholder') {
+		@content;
+	}
+	@include optional-at-root(':-moz-placeholder') {
+		@content;
+	}
+	@include optional-at-root('::-moz-placeholder') {
+		@content;
+	}
+	@include optional-at-root(':-ms-input-placeholder') {
+		@content;
+	}
+}
+
+// Clear float
+@mixin clear-b () {
+	&::after,&::before{
+		content: "";
+		display: table;
+		clear: both;
+		width: 100%;
+	}
+}
+.clear-b{
+	@include clear-b;
+}
+
+/* ITERATIONS */
+
+// Margins and Paddings
+@for $i from 0 through 20 {
+	$value: $i * 5;
+	// Margin
+	.mt#{$value}{
+		margin-top: #{$value}px;
+	}
+	.mb#{$value}{
+		margin-bottom: #{$value}px;
+	}
+	.mr#{$value}{
+		margin-right: #{$value}px;
+	}
+	.ml#{$value}{
+		margin-left: #{$value}px;
+	}
+	// Padding
+	.pt#{$value}{
+		padding-top: #{$value}px;
+	}
+	.pb#{$value}{
+		padding-bottom: #{$value}px;
+	}
+	.pr#{$value}{
+		padding-right: #{$value}px;
+	}
+	.pl#{$value}{
+		padding-left: #{$value}px;
+	}
+}
+
+// Margins and Paddings on mobile
+@for $i from 0 through 10 {
+	$value: $i * 5;
+	// Margins
+	.mtm#{$value}{
+		@media #{$mediaMobile}{
+			margin-top: #{$value}px;
+		}
+	}
+	.mbm#{$value}{
+		@media #{$mediaMobile}{
+			margin-bottom: #{$value}px;
+		}
+	}
+	.mlm#{$value}{
+		@media #{$mediaMobile}{
+			margin-left: #{$value}px;
+		}
+	}
+	.mrm#{$value}{
+		@media #{$mediaMobile}{
+			margin-right: #{$value}px;
+		}
+	}
+	// Paddings
+	.ptm#{$value}{
+		@media #{$mediaMobile}{
+			padding-top: #{$value}px;
+		}
+	}
+	.pbm#{$value}{
+		@media #{$mediaMobile}{
+			padding-bottom: #{$value}px;
+		}
+	}
+	.plm#{$value}{
+		@media #{$mediaMobile}{
+			padding-left: #{$value}px;
+		}
+	}
+	.prm#{$value}{
+		@media #{$mediaMobile}{
+			padding-right: #{$value}px;
+		}
+	}
+}
+
+// Call animation
+@mixin trilhaGradient() {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1232b1+0,e81ea4+100 */
+	background: linear-gradient(135deg, #1232b1 0%,#e81ea4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}

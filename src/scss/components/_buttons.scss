@@ -1,0 +1,33 @@
+
+label.btn {
+	input {
+		display: none !important;
+	}
+}
+
+.btn {
+	@include flex(center,center,nowrap,inline-flex);
+	vertical-align: middle;
+	border: 1px solid transparent;
+	outline: none;
+	text-align: center;
+	cursor: pointer;
+	@include transition;
+	// Colors
+	&--white {
+		color: $lBlack;
+		background: $white;
+		border-color: $white;
+		&:hover {
+			background: $lBlack;
+			color: $white;
+		}
+	}
+	// Shapes
+	&--circle {
+		width: 40px;
+		height: 40px;;
+		border-radius: 50%;
+		font-weight: normal;
+	}
+}

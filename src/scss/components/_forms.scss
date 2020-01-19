@@ -1,0 +1,53 @@
+.form {
+	.placeholder{
+		position: relative;
+		input[type='text'],
+		input[type='password'],
+		input[type='date'],
+		input[type='phone'],
+		input[type='number'],
+		input[type='email'],
+		textarea{
+			width: 100%;
+			padding: 10px;
+			resize: none;
+			display: block;
+			@include transition();
+			border: 1px solid rgba($black, 0.3);
+			border-radius: 4px;
+			+ *{
+				left: 0;
+				right: 0;
+				width: 0;
+				bottom: 0;
+				margin: 0;
+				padding: 0;
+				height: 2px;
+				margin: auto;
+				position: absolute;
+				@include transition();
+				background-color: #0231b8;
+			}
+			@include placeholder{
+				// Placeholder styles here ↓ ↓ ↓
+			}
+			&:focus,
+			&:valid{
+				padding: 15px;
+				+ *{
+					width: 100%;
+				}
+			}
+		}
+	}
+	&--modal{
+		input[type='text'],
+		input[type='password'],
+		input[type='date'],
+		input[type='phone'],
+		input[type='number'],
+		input[type='email']{
+			width: 100%;
+		}
+	}
+}

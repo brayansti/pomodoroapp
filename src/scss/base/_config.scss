@@ -1,0 +1,50 @@
+/* VARIABLES */
+$pomodoro-1: #323E40;
+$pomodoro-2: #F2AB27;
+$pomodoro-3: #D97D0D;
+$pomodoro-4: #732002;
+$pomodoro-5: #D94D1A;
+
+/* Color Theme Swatches in RGBA */
+$pomodoro-1-rgba: rgba(49,62,63, 1);
+$pomodoro-2-rgba: rgba(242,171,38, 1);
+$pomodoro-3-rgba: rgba(216,125,13, 1);
+$pomodoro-4-rgba: rgba(114,32,2, 1);
+$pomodoro-5-rgba: rgba(216,76,26, 1);
+
+/* Color Theme Swatches in HSLA */
+$pomodoro-1-hsla: hsla(185, 12, 22, 1);
+$pomodoro-2-hsla: hsla(39, 88, 55, 1);
+$pomodoro-3-hsla: hsla(33, 88, 45, 1);
+$pomodoro-4-hsla: hsla(16, 96, 22, 1);
+$pomodoro-5-hsla: hsla(16, 78, 47, 1);
+
+// Colors
+
+$black: #000;
+$lBlack: #292929;
+
+$white: #FFF;
+
+$txtGray: #dfdfdf; 
+
+// Global Font
+$fontFamily: arial, sans-serif;
+$baseFont: 16;
+
+// Loader
+$bgLoader: $black;
+$colorLoader: $white;
+
+$widthLoader: 100px;
+
+// -- to animation
+$colorLoader1: red;
+$colorLoader2: green;
+$colorLoader3: purple;
+$colorLoader4: yellow;
+
+// Modal
+$bgModal: $black;
+$maxWModal: 500px;
+$minHModal: 400px;

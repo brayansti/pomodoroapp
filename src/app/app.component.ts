@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'Pomodoro APP';
   percentClock:number = 100;
   options: object = {};
+  currentClock;
 
   constructor(){}
   ngOnInit() {
@@ -20,9 +21,13 @@ export class AppComponent implements OnInit {
     this.options = e
   }
   
-  inputCurrentTime(currentTime):void {
+  inputCurrentCounter(currentTime):void {
     console.log(currentTime);
-    // this.currentTime = currentTime;
+    let timeDecimal = currentTime[0][0] + currentTime[0][1] / 60
+    console.log(timeDecimal);
+
+    this.percentClock = ((timeDecimal*100) / currentTime[1]);
+
   }
 
 }

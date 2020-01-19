@@ -23,13 +23,15 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
   currentRound = 1;
   nextRound = false;
   subscription: Subscription;
+  currentTimerOnClock;
 
   constructor() { }
 
   updateOptions(options): void{
-    this.newOptions = options;
+    this.newOptions = options
     this.timing = [this.newOptions['optionvalueHour'] , 0]
-    this.runPomodoro();
+    this.currentTimerOnClock = this.newOptions['optionvalueHour']
+    this.runPomodoro()
   }
 
   runPomodoro():void {
@@ -38,8 +40,6 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
     // newOptions[optionlongBreak]
     // newOptions[optionrounds]
     // Set rounds
-
-    // this.changeTime(this.newOptions['optionvalueHour']);
 
     this.startTimer().then( status=>{
       onEndClock()
@@ -50,6 +50,7 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
       // When have to work
       if(this.nextRound){
         // console.log(this.nextRound);
+        this.currentTimerOnClock = this.newOptions['optionvalueHour'];
         this.changeTime(this.newOptions['optionvalueHour']);
         this.stopTimer(); this.runPomodoro();
       }
@@ -59,12 +60,14 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
         // When is short break
         if(this.currentRound < this.newOptions['optionrounds']){
           // console.log('short break');
+          this.currentTimerOnClock = this.newOptions['optionshortBreak'];
           this.changeTime(this.newOptions['optionshortBreak']);
           this.currentRound ++
         }
         else{
           // When is long break
           // console.log('Long break');
+          this.currentTimerOnClock = this.newOptions['optionlongBreak'];
           this.changeTime(this.newOptions['optionlongBreak']);
         }
         this.stopTimer();
@@ -138,11 +141,12 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
   changeTime(minutes): void{
     // Set the minutes and seconds back to their new values.
     this.stopTimer();
-    this.timing = [minutes, 1];
+    this.timing = [minutes, 0];
   }
 
   private updateTimer():any {
     return new Promise( (resolve) =>{
+        this.sendOutputCurrentCounter( [this.timing[0] , this.timing[1]] );
         if (this.running) {
           // Check if the timer is comeplete and if so stop the timer and run onComplete().
           if (this.timing[0] === 0 && this.timing[1] === 0) {
@@ -157,6 +161,15 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
           }
         }
     } )
+  }
+
+  @Output() outputCurrentCounter = new EventEmitter<any>();
+
+  sendOutputCurrentCounter(time: any){
+    // console.log(time);
+    this.outputCurrentCounter.emit(
+      [time , this.currentTimerOnClock]
+    )
   }
 
   // private updateTimer(): void {

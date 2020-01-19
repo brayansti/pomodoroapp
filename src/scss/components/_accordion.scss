@@ -1,0 +1,71 @@
+/*
+<section class="accordion">
+    <!-- Accordion Container -->
+    <ul class="accordion__container">
+        <!-- Accordion Item -->
+        <li class="accordion__item">
+            <h2 class="accordion__toggle" href="#">Unidad Carrera 16</h2>
+            <ul class="accordion__content">
+                xxxxxxxxxxxxxxxx
+            </ul>
+        </li>
+        <!-- End Accordion Item -->
+        <!-- Accordion Item -->
+        <li class="accordion__item">
+            <h2 class="accordion__toggle" href="#">Unidad Carrera 16</h2>
+            <ul class="accordion__content">
+                xxxxxxxxxxxxxxxx
+            </ul>
+        </li>
+        <!-- End Accordion Item -->
+    </ul>
+</section>
+*/
+
+.accordion {
+    width: 100%;
+    &__container {
+        width: 100%;
+        height: auto;
+    }
+    &__item {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        list-style: none;
+    }
+    &__toggle {
+        cursor: pointer;
+        @include flex(flex-start);
+        width: 100%;
+        min-height: 50px;
+        padding: 14px 45px 14px 0px;
+        border-radius: 2px;
+        letter-spacing: 1px;
+        position: relative;
+        @include transition;
+        border-bottom: 1px solid $lGray;
+        &::after {
+            @include flex;
+            content: "+";
+            font-family: "poppinsBold", Arial, Helvetica, sans-serif;
+            margin: auto;
+            position: absolute;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+        }
+        &.active {
+            &::after {
+                content: "-";
+            }
+        }
+    }
+    &__content {
+        display: none;
+        width: 100%;
+        padding: 0;
+        padding: 15px 0;
+        overflow: hidden;
+    }
+}
