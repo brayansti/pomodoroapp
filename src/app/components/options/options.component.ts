@@ -24,7 +24,6 @@ export class OptionsComponent implements OnInit {
     // this.sendDataTime(this.options);
   }
 
-  @Output() myEvent = new EventEmitter();
   sendDataTime(data:Object){
     this.ouputOptions.emit(data)
   }

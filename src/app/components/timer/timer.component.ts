@@ -10,14 +10,16 @@ import { promise } from 'protractor';
 })
 export class TimerComponent implements OnInit, OnDestroy, OnChanges {
 
-  // @Input() m: number;
-  // @Input() s: number;
+  @Input() m: number;
+  @Input() s: number;
   newOptions: Object;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onComplete: EventEmitter<any> = new EventEmitter();
 
   running = false;
-  timing = [20 , 5];
+  // newOptions[optionvalueHour]
+  // newOptions[optionshortBreak]
+  timing = [0, 2];
   currentRound = 1;
   nextRound = false;
   subscription: Subscription;
@@ -26,17 +28,18 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
 
   updateOptions(options): void{
     this.newOptions = options;
+    this.timing = [this.newOptions['optionvalueHour'] , 0]
     this.runPomodoro();
   }
 
   runPomodoro():void {
-    // newOptions['optionvalueHour']
-    // newOptions['optionshortBreak']
-    // newOptions['optionlongBreak']
-    // newOptions['optionrounds']
+    // newOptions[optionvalueHour]
+    // newOptions[optionshortBreak]
+    // newOptions[optionlongBreak]
+    // newOptions[optionrounds]
     // Set rounds
 
-    this.changeTime(this.newOptions['optionvalueHour']);
+    // this.changeTime(this.newOptions['optionvalueHour']);
 
     this.startTimer().then( status=>{
       onEndClock()
@@ -80,18 +83,16 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
     // this.newOptions.subscribe( algo =>{
     //   console.log('Cambiado');
     // } )
-    
-    // if (this.m) {
-    //   this.timing[0] = this.m;
-    // } else {
-    //   this.m = 25;
-    // }
-    // if (this.s) {
-    //   this.timing[1] = this.s;
-    // } else {
-    //   this.s = 0;
-    // }
-
+    if (this.m) {
+      this.timing[0] = this.m;
+    } else {
+      this.m = 25;
+    }
+    if (this.s) {
+      this.timing[1] = this.s;
+    } else {
+      this.s = 0;
+    }
   }
 
   ngOnDestroy(): void {
@@ -131,7 +132,7 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
   resetTimer(): void {
     // Set the minutes and seconds back to their original values.
     this.stopTimer();
-    this.timing = [this.newOptions['optionvalueHour'], this.newOptions['optionshortBreak']];
+    this.timing = [this.m, this.s];
   }
 
   changeTime(minutes): void{

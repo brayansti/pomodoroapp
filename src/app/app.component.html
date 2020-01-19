@@ -8,6 +8,7 @@
   <section class="clockContainer">
     <div class="clockContainer__circle">
       <input [(ngModel)]="percentClock" type="number">
+      
       <circle-progress
         [percent]="percentClock"
         [radius]="100"
@@ -20,10 +21,9 @@
       </circle-progress>
     </div>
     <div class="clockContainer__timer">
-      <app-timer #apptime ></app-timer>
+      <app-timer (ouputCurrentTime)="inputCurrentTime($event)" #apptime ></app-timer>
     </div>
   </section>
-
   
 
   <section class="optionsContainer">
