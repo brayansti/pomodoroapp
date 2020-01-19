@@ -14,13 +14,14 @@ label.btn {
 	cursor: pointer;
 	@include transition;
 	// Colors
-	&--white {
-		color: $lBlack;
-		background: $white;
-		border-color: $white;
+	&--yellow {
+		color: $white;
+		border-color: $pomodoro-2;
+		background: $pomodoro-2;
 		&:hover {
-			background: $lBlack;
 			color: $white;
+			background: $pomodoro-1;
+			border-color: $white;
 		}
 	}
 	// Shapes
@@ -28,6 +29,10 @@ label.btn {
 		width: 40px;
 		height: 40px;;
 		border-radius: 50%;
-		font-weight: normal;
+	}
+	&--square {
+		padding: 10px 20px;
+		border-radius: 15px;
+		@include fontSize(14);
 	}
 }

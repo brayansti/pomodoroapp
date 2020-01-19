@@ -1,57 +1,69 @@
 
-<div class="pomodoroOptions">
+<article class="pomodoroOptions">
 
-    <div class="slider-time">
-        <p>Work</p>
-        <p> {{options.optionvalueHour}} : 00 </p>
-        <mat-slider
-            min="0"
-            max="60"
-            step="1"
-            [(ngModel)]="options.optionvalueHour"
-            [thumbLabel]="true">
-        </mat-slider>
-    </div>
-    <div class="slider-time">
-        <p>Short Break</p>
-        <p> {{options.optionshortBreak}} : 00 </p>
-        <mat-slider
-            min="0"
-            max="60"
-            step="1"
-            [(ngModel)]="options.optionshortBreak"
-            [thumbLabel]="true">
-        </mat-slider>
-    </div>
-    <div class="slider-time">
-        <p>Long Break</p>
-        <p> {{options.optionlongBreak}} : 00 </p>
-        <mat-slider
-            min="0"
-            max="60"
-            step="1"
-            [(ngModel)]="options.optionlongBreak"
-            [thumbLabel]="true">
-        </mat-slider>
-    </div>
-    <div class="slider-time">
-        <p>Rounds</p>
-        <p> {{options.optionrounds}} : 00 </p>
-        <mat-slider
-            min="0"
-            max="12"
-            step="1"
-            [(ngModel)]="options.optionrounds"
-            [thumbLabel]="true">
-        </mat-slider>
-    </div>
+    <section class="pomodoroOptions__container">
+        <div class="pomodoroOptions__sliderContent">
+            <p class="pomodoroOptions__title">Work</p>
+            <p class="pomodoroOptions__time">
+                <span> {{options.optionvalueHour}} : 00 </span>
+            </p>
+            <mat-slider
+                min="0"
+                max="60"
+                step="1"
+                [(ngModel)]="options.optionvalueHour"
+                [thumbLabel]="true">
+            </mat-slider>
+        </div>
+    
+        <div class="pomodoroOptions__sliderContent">
+            <p class="pomodoroOptions__title">Short Break</p>
+            <p class="pomodoroOptions__time">
+                <span> {{options.optionshortBreak}} : 00 </span>
+            </p>
+            <mat-slider
+                min="0"
+                max="60"
+                step="1"
+                [(ngModel)]="options.optionshortBreak"
+                [thumbLabel]="true">
+            </mat-slider>
+        </div>
+        <div class="pomodoroOptions__sliderContent">
+            <p class="pomodoroOptions__title">Long Break</p>
+            <p class="pomodoroOptions__time">
+                <span> {{options.optionlongBreak}} : 00 </span>
+            </p>
+            <mat-slider
+                min="0"
+                max="60"
+                step="1"
+                [(ngModel)]="options.optionlongBreak"
+                [thumbLabel]="true">
+            </mat-slider>
+        </div>
+        <div class="pomodoroOptions__sliderContent">
+            <p class="pomodoroOptions__title">Rounds</p>
+            <p class="pomodoroOptions__time">
+                <span> {{options.optionrounds}} : 00 </span>
+            </p>
+            <mat-slider
+                min="0"
+                max="12"
+                step="1"
+                [(ngModel)]="options.optionrounds"
+                [thumbLabel]="true">
+            </mat-slider>
+        </div>
+    
+        <div class="pomodoroOptions__buttonContent mt20">
+            <button
+                class="btn btn--square btn--yellow"
+                (click)="sendDataTime(options)">
+                Start Pomodoro
+            </button>
+        </div>
+    </section>
 
 
-    <div>
-        <button
-            (click)="sendDataTime(options)">
-            Start Pomodoro
-        </button>
-    </div>
-
-</div>
+</article>
