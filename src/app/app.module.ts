@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
@@ -23,7 +24,25 @@ import { TimerComponent } from './components/timer/timer.component';
     FormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    NgCircleProgressModule.forRoot({ /*  Default options here */ })
+    MatIconModule,
+    NgCircleProgressModule.forRoot({
+      "radius": 100,
+      "space": -10,
+      "outerStrokeWidth": 10,
+      "outerStrokeColor": "#F2AB27",
+      "innerStrokeColor": "#283335",
+      "innerStrokeWidth": 10,
+      "title": "00:00",
+      "titleFontSize": "50",
+      "titleColor": "#fff",
+      "animateTitle": false,
+      "showSubtitle": false,
+      "showUnits": false,
+      "showBackground": false,
+      "clockwise": true,
+      "startFromZero": false,
+      "animation": false,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

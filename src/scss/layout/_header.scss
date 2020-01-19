@@ -1,5 +1,21 @@
 .mainHeader {
+    height: 50px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border-bottom: 1px solid rgba($white , 0.2);
+    z-index: 1500;
+    width: 100%;
+    &__container{
+        width: 100%;
+    }
+    &__title{
+        text-align: center;
+        color: $pomodoro-2;
+    }
     .hamburger-menu{
-        position: relative;
+        top: 15px;
+        left: 15px;
+        position: absolute;
     }
 }

@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   percentClock:number = 100;
   options: object = {};
   currentClock;
+  activateOptions = true;
 
   constructor(){}
   ngOnInit() {
@@ -20,12 +21,19 @@ export class AppComponent implements OnInit {
   updateOptions(e):void {
     this.options = e
   }
+
+  showHideptions():any {
+    this.activateOptions = !this.activateOptions;
+    console.log(this.activateOptions);
+  }
   
   inputCurrentCounter(currentTime):void {
     console.log(currentTime);
     let timeDecimal = currentTime[0][0] + currentTime[0][1] / 60
     console.log(timeDecimal);
 
+    // this.currentClock = `${currentTime[0][0]}:${currentTime[0][1]}`
+    this.currentClock = `${currentTime[0][0] < 10 ? 0 : ''}${currentTime[0][0]} : ${currentTime[0][1] < 10 ? 0 : ''}${currentTime[0][1]}`
     this.percentClock = ((timeDecimal*100) / currentTime[1]);
 
   }

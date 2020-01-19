@@ -10,8 +10,6 @@ $bar-color: rgba(255, 255, 255, 1);
 	height: $bar-height + $bar-spacing*2;
 	cursor: pointer;
 	z-index: 2;
-	margin: 0 auto;
-	margin-top: 2rem;
 	@media #{$mediaMobile}{
 		display: block;
 	}

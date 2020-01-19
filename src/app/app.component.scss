@@ -2,11 +2,35 @@
 @import '../styles.scss';
 
 .mainApp{
+    min-height: 100vh;
     color: $white;
     margin: 0 auto;
     background-color: $pomodoro-1;
 }
+app-options{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    @include transition();
+    &.active{
+        left: 0;
+    }
+}
+.clockContainer{
+    width: 100%;
+    margin-top: 7%;
+    @media #{$mediaMobile}{
+        margin-top: 15%;
+    }
+    &__all{
 
-.mainApp[_ngcontent-jan-c0]{
-    background-color: red;
+    }
+    &__circle{
+        text-align: center;
+    }
+    &__timer{
+
+    }
 }

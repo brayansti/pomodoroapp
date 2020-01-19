@@ -1,34 +1,39 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<app-options [ngClass]="{'active' :activateOptions}" (ouputOptions)="apptime.updateOptions($event)"></app-options>
 <main class="mainApp">
-  <h1 class="title">
-    {{title}}
-  </h1>
+  
+  <header class="mainHeader">
+    <div class="mainHeader__container">
+      <div (click)="showHideptions()" class="hamburger-menu">
+        <div class="bar animate"></div>
+      </div>
+      <h1 class="mainHeader__title">
+        {{title}}
+      </h1>
+    </div>
+  </header>
 
   <section class="clockContainer">
-    <div class="clockContainer__circle">
-      <input [(ngModel)]="percentClock" type="number">
-      
-      <circle-progress
-        [percent]="percentClock"
-        [radius]="100"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#78C000'"
-        [innerStrokeColor]="'#C7E596'"
-        [animation]="false"
-      >
-      </circle-progress>
-    </div>
-    <div class="clockContainer__timer">
-      <app-timer (outputCurrentCounter)="inputCurrentCounter($event)" #apptime ></app-timer>
+    <div class="clockContainer__all">
+      <div class="clockContainer__circle">
+        <!-- <input [(ngModel)]="percentClock" type="number"> -->
+        
+        <circle-progress
+          [percent]="percentClock"
+          [title]="currentClock"
+        >
+        </circle-progress>
+      </div>
+
+      <div class="clockContainer__timer">
+        <app-timer (outputCurrentCounter)="inputCurrentCounter($event)" #apptime ></app-timer>
+      </div>
+
     </div>
   </section>
   
 
-  <section class="optionsContainer">
-    <app-options (ouputOptions)="apptime.updateOptions($event)"></app-options>
-  </section>
 </main>
 
 

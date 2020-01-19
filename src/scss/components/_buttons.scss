@@ -24,10 +24,28 @@ label.btn {
 			border-color: $white;
 		}
 	}
+	&--white {
+		color: $white;
+		border-color: rgba($white, 0.5);
+		background: $pomodoro-1;
+		&:hover {
+			color: $pomodoro-5;
+		}
+	}
+	&--red {
+		color: $white;
+		border-color: $pomodoro-5;
+		background: $pomodoro-5;
+		&:hover {
+			color: $white;
+			background: $pomodoro-1;
+			border-color: $white;
+		}
+	}
 	// Shapes
 	&--circle {
-		width: 40px;
-		height: 40px;;
+		width: 80px;
+		height: 80px;;
 		border-radius: 50%;
 	}
 	&--square {
