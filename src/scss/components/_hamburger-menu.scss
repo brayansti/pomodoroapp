@@ -5,14 +5,11 @@ $activate-border-radius: true;
 $bar-color: rgba(255, 255, 255, 1);
 
 .hamburger-menu {
-	display: none;
+	display: block;
 	width: $bar-width;
 	height: $bar-height + $bar-spacing*2;
 	cursor: pointer;
 	z-index: 2;
-	@media #{$mediaMobile}{
-		display: block;
-	}
 	.bar,
 	.bar:after,
 	.bar:before {

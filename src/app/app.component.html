@@ -1,39 +1,41 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<app-options [ngClass]="{'active' :activateOptions}" (ouputOptions)="apptime.updateOptions($event)"></app-options>
 <main class="mainApp">
-  
-  <header class="mainHeader">
-    <div class="mainHeader__container">
-      <div (click)="showHideptions()" class="hamburger-menu">
-        <div class="bar animate"></div>
-      </div>
-      <h1 class="mainHeader__title">
-        {{title}}
-      </h1>
-    </div>
-  </header>
-
-  <section class="clockContainer">
-    <div class="clockContainer__all">
-      <div class="clockContainer__circle">
-        <!-- <input [(ngModel)]="percentClock" type="number"> -->
-        
-        <circle-progress
-          [percent]="percentClock"
-          [title]="currentClock"
-        >
-        </circle-progress>
-      </div>
-
-      <div class="clockContainer__timer">
-        <app-timer (outputCurrentCounter)="inputCurrentCounter($event)" #apptime ></app-timer>
-      </div>
-
-    </div>
-  </section>
-  
-
+  <div class="mainApp__container">
+    <app-options [ngClass]="{'active' :activateOptions}" (ouputOptions)="apptime.updateOptions($event)"></app-options>
+    <article class="mainApp__logic">
+      
+      <header class="mainHeader">
+        <div class="mainHeader__container">
+          <div (click)="showHideptions()" class="hamburger-menu">
+            <div [ngClass]="{'animate': activateOptions}" class="bar"></div>
+          </div>
+          <h1 class="mainHeader__title">
+            {{title}}
+          </h1>
+        </div>
+      </header>
+    
+      <section class="clockContainer">
+        <div class="clockContainer__all">
+          <div class="clockContainer__circle">
+            <!-- <input [(ngModel)]="percentClock" type="number"> -->
+            
+            <circle-progress
+              [percent]="percentClock"
+              [title]="currentClock"
+            >
+            </circle-progress>
+          </div>
+    
+          <div class="clockContainer__timer">
+            <app-timer (outputCurrentCounter)="inputCurrentCounter($event)" #apptime ></app-timer>
+          </div>
+    
+        </div>
+      </section>
+    </article>
+  </div>
 </main>
 
 
