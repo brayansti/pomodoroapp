@@ -9,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class OptionsComponent implements OnInit {
 
   @Output() ouputOptions = new EventEmitter();
+  @Output() ouputHamburguer = new EventEmitter();
 
   options:object = {
     optionvalueHour : 20,
@@ -26,5 +27,8 @@ export class OptionsComponent implements OnInit {
 
   sendDataTime(data:Object){
     this.ouputOptions.emit(data)
+  }
+  activateHamburguerNav(data:boolean){
+    this.ouputHamburguer.emit(data)
   }
 }

@@ -15,7 +15,7 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
   newOptions: Object;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onComplete: EventEmitter<any> = new EventEmitter();
-
+  showPause:boolean = true;
   running = false;
   // newOptions[optionvalueHour]
   // newOptions[optionshortBreak]
@@ -130,6 +130,10 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
         this.subscription.unsubscribe();
       }
     }
+  }
+
+  clickButton(): void{
+    this.showPause = !this.showPause;
   }
 
   resetTimer(): void {

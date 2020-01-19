@@ -2,12 +2,12 @@
 
 <main class="mainApp">
   <div class="mainApp__container">
-    <app-options [ngClass]="{'active' :activateOptions}" (ouputOptions)="apptime.updateOptions($event)"></app-options>
+    <app-options [ngClass]="{'active' :activateOptions}" (ouputHamburguer)="activateHamburguerNav($event)" (ouputOptions)="apptime.updateOptions($event)"></app-options >
     <article class="mainApp__logic">
       
       <header class="mainHeader">
         <div class="mainHeader__container">
-          <div (click)="showHideptions()" class="hamburger-menu">
+          <div (click)="showHideptions()" *ngIf="activateHamburguer" class="hamburger-menu">
             <div [ngClass]="{'animate': activateOptions}" class="bar"></div>
           </div>
           <h1 class="mainHeader__title">

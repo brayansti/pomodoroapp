@@ -5,7 +5,8 @@
     min-height: 100vh;
     color: $white;
     margin: 0 auto;
-    background-color: $pomodoro-1;
+    // background-color: $pomodoro-1;
+    background-color: #283233;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +17,9 @@
         position: relative;
         overflow: auto;
         border-radius: 10px;
-        border: 1px solid rgba($white , 0.2);
+        // @media #{$mediaMobile}{
+        //     border: none;
+        // }
     }
 }
 app-options{
