@@ -24,6 +24,7 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
   nextRound = false;
   subscription: Subscription;
   currentTimerOnClock;
+  audioFileName = 'short.mp3';
 
   constructor() { }
 
@@ -53,6 +54,8 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
         this.currentTimerOnClock = this.newOptions['optionvalueHour'];
         this.changeTime(this.newOptions['optionvalueHour']);
         this.stopTimer(); this.runPomodoro();
+        this.playAudio('short.mp3');
+        this.sendoutputCurrentActivity('Work')
       }
       // When have take a break
       else{
@@ -63,12 +66,16 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
           this.currentTimerOnClock = this.newOptions['optionshortBreak'];
           this.changeTime(this.newOptions['optionshortBreak']);
           this.currentRound ++
+          this.playAudio('short.mp3')
+          this.sendoutputCurrentActivity('Short break')
         }
         else{
           // When is long break
           // console.log('Long break');
           this.currentTimerOnClock = this.newOptions['optionlongBreak'];
           this.changeTime(this.newOptions['optionlongBreak']);
+          this.playAudio('long.mp3');
+          this.sendoutputCurrentActivity('Long break')
         }
         this.stopTimer();
         /* Run Clock Again → */ this.runPomodoro();
@@ -96,6 +103,15 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
     } else {
       this.s = 0;
     }
+  }
+
+  playAudio(fileName:string):any {
+    this.audioFileName = fileName;
+    let audioTag = <HTMLVideoElement> document.getElementById('audioTag')
+    audioTag.load();
+    audioTag.onloadeddata = () => {
+      audioTag.play();
+    };
   }
 
   ngOnDestroy(): void {
@@ -168,12 +184,19 @@ export class TimerComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   @Output() outputCurrentCounter = new EventEmitter<any>();
+  @Output() outputCurrentActivity = new EventEmitter<any>();
 
   sendOutputCurrentCounter(time: any){
     // console.log(time);
-    this.outputCurrentCounter.emit(
-      [time , this.currentTimerOnClock]
+    this.outputCurrentCounter.emit( [
+        time,
+        this.currentTimerOnClock
+      ]
     )
+  }
+  
+  sendoutputCurrentActivity(currentActivity: any){
+    this.outputCurrentActivity.emit(currentActivity)
   }
 
   // private updateTimer(): void {

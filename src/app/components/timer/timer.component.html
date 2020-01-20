@@ -10,8 +10,9 @@
     </button>
   </div>
   <div class="timerComponent__rounds" *ngIf="newOptions">
-    <p>
+    <p (click)="playAudio('long.mp3')">
       {{currentRound}} / {{newOptions.optionrounds}}
     </p>
+    <audio class="hidden" controls id="audioTag" src="../../../assets/sounds/{{audioFileName}}"></audio>
   </div>
 </div>

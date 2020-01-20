@@ -24,12 +24,13 @@
             <circle-progress
               [percent]="percentClock"
               [title]="currentClock"
+              [subtitle]="currentActivity"
             >
             </circle-progress>
           </div>
     
           <div class="clockContainer__timer">
-            <app-timer (outputCurrentCounter)="inputCurrentCounter($event)" #apptime ></app-timer>
+            <app-timer (outputCurrentActivity)="inputCurrentActivity($event)" (outputCurrentCounter)="inputCurrentCounter($event)" #apptime ></app-timer>
           </div>
     
         </div>

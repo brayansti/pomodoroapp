@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   currentClock;
   activateOptions = true;
   activateHamburguer:boolean = false;
+  currentActivity: string = 'Work'
 
   constructor(){}
   ngOnInit() {
@@ -36,6 +37,9 @@ export class AppComponent implements OnInit {
     // this.currentClock = `${currentTime[0][0]}:${currentTime[0][1]}`
     this.currentClock = `${currentTime[0][0] < 10 ? 0 : ''}${currentTime[0][0]} : ${currentTime[0][1] < 10 ? 0 : ''}${currentTime[0][1]}`
     this.percentClock = ((timeDecimal*100) / currentTime[1]);
+  }
+  inputCurrentActivity(currentActivity){
+    this.currentActivity = currentActivity;
   }
 
   activateHamburguerNav(data:boolean):void{
